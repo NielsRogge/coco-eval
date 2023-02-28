@@ -28,4 +28,4 @@ evaluator.accumulate()
 evaluator.summarize()
 ```
 
-Refer to my DETR fine-tuning demo notebook regarding an example of using it.
+Refer to my [DETR fine-tuning demo notebook](https://github.com/NielsRogge/Transformers-Tutorials/blob/master/DETR/Fine_tuning_DetrForObjectDetection_on_custom_dataset_(balloon).ipynb) regarding an example of using it.
