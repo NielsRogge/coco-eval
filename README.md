@@ -13,15 +13,25 @@ pip install coco-eval
 
 The metric was taken and isolated from the [DETR repository](https://github.com/facebookresearch/detr/tree/main). Credits go to the authors.
 
-Usage is as follows:
+High-level usage is as follows (assuming you have a PyTorch model that makes predictions):
 
 ```
 from coco_eval import CocoEvaluator
 from torchvision.datasets import CocoDetection
+from torch.utils.data import DataLoader
 
 dataset = CocoDetection(root="path_to_your_images", annFile="path_to_annotation_file")
 
+dataloader = DataLoader(dataset, batch_size=2)
+
 evaluator = CocoEvaluator(coco_gt=dataset.coco, iou_types=["bbox"])
+
+model = ...
+
+for batch in dataloader:
+   predictions = model(batch)
+   
+   evaluator.update(predictions)
 
 evaluator.synchronize_between_processes()
 evaluator.accumulate()
