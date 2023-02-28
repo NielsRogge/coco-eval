@@ -17,7 +17,7 @@ import numpy as np
 from pycocotools.cocoeval import COCOeval
 from pycocotools.coco import COCO
 
-from .utils import all_gather
+from coco_eval.utils import all_gather
 
 
 class CocoEvaluator(object):
